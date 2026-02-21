@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/splash/view/splash_view.dart';
+import 'package:bookly_app/core/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +10,9 @@ class BooklyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashView());
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: router,
+    );
   }
 }
