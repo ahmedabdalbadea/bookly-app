@@ -1,3 +1,4 @@
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/app_router.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ class BooklyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimaryColor),
       debugShowCheckedModeBanner: false,
       routerConfig: router,
     );
