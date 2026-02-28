@@ -5,18 +5,15 @@ class CustomListViewItem extends StatelessWidget {
   final String image;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.sizeOf(context).height * 0.3,
-      child: AspectRatio(
-        aspectRatio: 2.7 / 4,
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(image),
-              fit: BoxFit.fill,
-            ),
-            borderRadius: BorderRadius.circular(16),
+    return AspectRatio(
+      aspectRatio: 2.7 / 4,
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.fill,
           ),
+          borderRadius: BorderRadius.circular(16),
         ),
       ),
     );
