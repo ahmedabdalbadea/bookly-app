@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomListViewItem extends StatelessWidget {
-  const CustomListViewItem({super.key, required this.image});
+class FeaturedBooksListViewItem extends StatelessWidget {
+  const FeaturedBooksListViewItem({super.key, required this.image});
   final String image;
   @override
   Widget build(BuildContext context) {

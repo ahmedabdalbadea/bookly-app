@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/assets_data.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_section.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_list_view.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class HomeViewBody extends StatelessWidget {
           onPressed: () {},
         ),
         FeaturedBooksListView(),
+        BestSellerSection(),
       ],
     );
   }
