@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/utils/assets_data.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_section.dart';
+import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_list_view.dart';
 import 'package:flutter/material.dart';
@@ -10,16 +11,44 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomAppBar(
-          logo: AssetsData.kLogo,
-          icon: FontAwesomeIcons.magnifyingGlass,
-          onPressed: () {},
+    return CustomScrollView(
+      physics: BouncingScrollPhysics(),
+      slivers: [
+        SliverToBoxAdapter(
+          
+          child: Column(
+            children: [
+              CustomAppBar(
+                logo: AssetsData.kLogo,
+                icon: FontAwesomeIcons.magnifyingGlass,
+                onPressed: () {},
+              ),
+              FeaturedBooksListView(),
+              BestSellerHeading(title: "Best Seller"),
+              SizedBox(height: 20),
+            ],
+          ),
         ),
-        FeaturedBooksListView(),
-        BestSellerSection(),
+        SliverFillRemaining(child: BestSellerListView()),
       ],
+    );
+  }
+}
+
+class BestSellerHeading extends StatelessWidget {
+  const BestSellerHeading({super.key, required this.title});
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Align(
+        alignment: AlignmentGeometry.centerLeft,
+        child: Text(
+          title,
+          style: Styles.textStyle18.copyWith(fontWeight: FontWeight.w600),
+        ),
+      ),
     );
   }
 }
