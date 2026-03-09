@@ -14,11 +14,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 100), () {
-      initOffset = Offset(0, 0);
-
-      setState(() {});
-    });
+    animateSlidingText();
   }
 
   @override
@@ -38,5 +34,13 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         ],
       ),
     );
+  }
+
+  Future<void> animateSlidingText() {
+    return Future.delayed(Duration(milliseconds: 100), () {
+      initOffset = Offset(0, 0);
+
+      setState(() {});
+    });
   }
 }
