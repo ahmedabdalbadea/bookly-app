@@ -9,28 +9,30 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomAppBar(),
-        FeaturedBooksListView(),
-        TextHeading(title: "Best Seller"),
-        BestSellerListView(),
-      ],
-    );
-  }
-}
+    return CustomScrollView(
+      scrollBehavior: ScrollBehavior().copyWith(overscroll: false),
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            children: [
+              CustomAppBar(),
+              FeaturedBooksListView(),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 10,
+                ),
+                child: Align(
+                  alignment: AlignmentGeometry.centerLeft,
+                  child: Text("Best Seller", style: Styles.textStyle20),
+                ),
+              ),
+            ],
+          ),
+        ),
 
-class TextHeading extends StatelessWidget {
-  const TextHeading({super.key, required this.title});
-  final String title;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-      child: Align(
-        alignment: AlignmentGeometry.centerLeft,
-        child: Text(title, style: Styles.textStyle20),
-      ),
+        SliverFillRemaining(child: BestSellerListView()),
+      ],
     );
   }
 }
